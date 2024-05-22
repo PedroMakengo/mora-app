@@ -12,8 +12,11 @@ export const styles = StyleSheet.create({
   groupsSocials: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '30%',
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 22,
+    marginBottom: 8,
   },
 
   title: {

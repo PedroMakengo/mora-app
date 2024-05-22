@@ -57,5 +57,41 @@ export const styles = StyleSheet.create({
     borderRadius: 6,
     borderWidth: 1,
     borderColor: '#ccc',
+    fontWeight: '300',
+  },
+
+  buttons: {
+    marginTop: 100,
+  },
+
+  buttonSubmit: {
+    width: '100%',
+    backgroundColor: theme.COLORS.gray_200,
+    padding: 12,
+    borderRadius: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  titleButton: {
+    color: theme.COLORS.white,
+  },
+
+  footerLogin: {
+    flexDirection: 'row',
+    marginTop: 28,
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 4,
+  },
+
+  footerTitle: {
+    fontWeight: '300',
+  },
+
+  footerTitleSignUp: {
+    fontWeight: 'bold',
+    textDecorationLine: 'underline',
+    color: theme.COLORS.gray_100,
   },
 })

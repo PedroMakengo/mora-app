@@ -5,6 +5,7 @@ import {
   ImageBackground,
   TextInput,
   TouchableOpacity,
+  Pressable,
 } from 'react-native'
 
 import { SafeAreaView } from 'react-native-safe-area-context'
@@ -14,9 +15,13 @@ import { Footer } from '@/components/Footer/index'
 import { theme } from '@/theme'
 import { styles } from './styles'
 
-export function Login() {
+export function Login({ navigation }: any) {
   const [errorLogin, setErrorLogin] = useState(false)
   const [isPasswordShow, setIsPasswordShow] = useState(true)
+
+  const onSubmitLogin = () => {
+    console.log('Testando')
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -42,7 +47,7 @@ export function Login() {
               <Text style={styles.titleInput}>Email</Text>
               <TextInput
                 placeholder="example@gmail.com"
-                placeholderTextColor={theme.COLORS.gray_100}
+                placeholderTextColor={'#808080'}
                 style={styles.input}
               />
             </View>
@@ -51,7 +56,7 @@ export function Login() {
               <Text style={styles.titleInput}>Password</Text>
               <TextInput
                 placeholder="password"
-                placeholderTextColor={theme.COLORS.gray_100}
+                placeholderTextColor={'#808080'}
                 style={styles.input}
                 secureTextEntry={isPasswordShow}
               />
@@ -69,6 +74,22 @@ export function Login() {
                   <Ionicons name="eye" size={24} color={theme.COLORS.black} />
                 )}
               </TouchableOpacity>
+            </View>
+
+            <View style={styles.buttons}>
+              <TouchableOpacity
+                style={styles.buttonSubmit}
+                onPress={onSubmitLogin}
+              >
+                <Text style={styles.titleButton}>Continue</Text>
+              </TouchableOpacity>
+
+              <View style={styles.footerLogin}>
+                <Text style={styles.footerTitle}>Don't have an account?</Text>
+                <Pressable onPress={() => navigation.navigate('Welcome')}>
+                  <Text style={styles.footerTitleSignUp}>Sign Up</Text>
+                </Pressable>
+              </View>
             </View>
           </View>
         </View>

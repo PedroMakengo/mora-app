@@ -23,8 +23,15 @@ export const styles = StyleSheet.create({
     marginRight: 'auto',
   },
 
+  error: {
+    paddingVertical: 12,
+    paddingHorizontal: 10,
+    backgroundColor: 'red',
+    borderRadius: 6,
+  },
+
   contentForms: {
-    marginTop: 46,
+    marginTop: 8,
   },
   title: {
     fontWeight: 'bold',

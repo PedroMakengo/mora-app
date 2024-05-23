@@ -16,7 +16,7 @@ import { theme } from '@/theme'
 import { styles } from './styles'
 
 export function Login({ navigation }: any) {
-  const [errorLogin, setErrorLogin] = useState(false)
+  const [errorLogin, setErrorLogin] = useState(true)
   const [isPasswordShow, setIsPasswordShow] = useState(true)
 
   const onSubmitLogin = () => {
@@ -43,6 +43,11 @@ export function Login({ navigation }: any) {
           </View>
 
           <View style={styles.form}>
+            {errorLogin && (
+              <View style={styles.error}>
+                <Text>Error</Text>
+              </View>
+            )}
             <View style={styles.controls}>
               <Text style={styles.titleInput}>Email</Text>
               <TextInput

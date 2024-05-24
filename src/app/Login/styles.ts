@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
   error: {
     paddingVertical: 12,
     paddingHorizontal: 10,
-    backgroundColor: 'red',
+    backgroundColor: theme.COLORS.red,
     borderRadius: 6,
   },
 

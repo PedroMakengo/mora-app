@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   View,
   Text,
@@ -16,12 +16,26 @@ import { theme } from '@/theme'
 import { styles } from './styles'
 
 export function Login({ navigation }: any) {
-  const [errorLogin, setErrorLogin] = useState(true)
+  const [errorLogin, setErrorLogin] = useState(false)
   const [isPasswordShow, setIsPasswordShow] = useState(true)
 
+  // FORMS
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
   const onSubmitLogin = () => {
-    console.log('Testando')
+    if (email === '' || password === '') {
+      setErrorLogin(true)
+    } else {
+      setErrorLogin(false)
+    }
   }
+
+  useEffect(() => {
+    if (email !== '' || password !== '') {
+      setErrorLogin(false)
+    }
+  }, [email, password])
 
   return (
     <SafeAreaView style={styles.container}>
@@ -54,16 +68,20 @@ export function Login({ navigation }: any) {
                 placeholder="example@gmail.com"
                 placeholderTextColor={'#808080'}
                 style={styles.input}
+                onChangeText={setEmail}
+                value={email}
               />
             </View>
 
             <View style={styles.controls}>
-              <Text style={styles.titleInput}>Password</Text>
+              <Text style={styles.titleInput}>Password {password}</Text>
               <TextInput
                 placeholder="password"
                 placeholderTextColor={'#808080'}
                 style={styles.input}
                 secureTextEntry={isPasswordShow}
+                onChangeText={setPassword}
+                value={password}
               />
               <TouchableOpacity
                 style={styles.passwordHidden}
